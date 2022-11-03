@@ -15,7 +15,7 @@ class LRUCache<K, V>(private val capacity: Int) {
             data[key]?.let { node ->
                 order.remove(node)
                 data[key] = order.addFirst(node.value)
-                check(order.first()?.value?.first == key)
+                assert(order.first()?.value?.first == key)
                 node.value.second
             }
         }

@@ -19,8 +19,8 @@ class DoublyLinkedList<T> : Iterable<DoublyLinkedList<T>.Node> {
             size++
             node
         }.also {
-            check(it.value == value)
-            check(it in this)
+            assert(it.value == value)
+            assert(it in this)
         }
     }
 
@@ -41,7 +41,7 @@ class DoublyLinkedList<T> : Iterable<DoublyLinkedList<T>.Node> {
     }
 
     fun remove(node: Node) {
-        check(node in this) { "Node is not in the list" }
+        assert(node in this) { "Node is not in the list" }
         keepInvariant {
             if (node.prev == null) {
                 head = node.next
@@ -55,7 +55,7 @@ class DoublyLinkedList<T> : Iterable<DoublyLinkedList<T>.Node> {
             }
             size--
         }
-        check(node !in this) { "Node is still in the list" }
+        assert(node !in this) { "Node is still in the list" }
     }
 
     fun size(): Int = size
